@@ -8,7 +8,7 @@ fn get_gyroscope_mut() -> &'static Mutex<(f32, f32, f32)> {
     GYROSCOPE_DATA.get_or_init(|| Mutex::new((0.0, 0.0, 0.0)))
 }
 
-/// Retourne les 3 dernières valeurs du gyroscope (x, y, z) en rad/s
+/// Retourne les 3 dernières valeurs du gyroscope (x, y, z)
 pub fn get_gyroscope() -> (f32, f32, f32) {
     let data = get_gyroscope_mut();
     if let Ok(gyro) = data.lock() {
@@ -40,7 +40,7 @@ impl std::fmt::Display for OscArg {
 fn parse_osc(data: &[u8]) -> Option<(String, Vec<OscArg>)> {
     // Vérifier si c'est un bundle ou un message simple
     if data.starts_with(b"#bundle\0") {
-        return None; // Les bundles sont traités séparément
+        return None;
     }
 
     let addr_end = data.iter().position(|&b| b == 0)?;
@@ -87,19 +87,13 @@ fn parse_osc(data: &[u8]) -> Option<(String, Vec<OscArg>)> {
 }
 
 fn parse_osc_bundle(data: &[u8]) {
-    // OSC Bundle format:
-    // - "#bundle\0" (8 bytes)
-    // - Timetag (8 bytes)
-    // - Ensuite: répétition de (size + data)
-    
+    // Vérifier si c'est un bundle
     if !data.starts_with(b"#bundle\0") || data.len() < 16 {
         return;
     }
 
-    let mut offset = 16; // Sauter "#bundle\0" + timetag
-
+    let mut offset = 16;
     while offset + 4 <= data.len() {
-        // Lire la taille du prochain élément (big-endian)
         let size = i32::from_be_bytes(data[offset..offset + 4].try_into().unwrap()) as usize;
         offset += 4;
 
@@ -141,14 +135,11 @@ pub fn listen() {
 
 fn handle_gyroscope_data(address: &str, args: &[OscArg]) {
     if address.ends_with("/gyro") && args.len() >= 3 {
-        // Format: /ZIGSIM/device_id/gyro with 3 floats
         match (args.get(0), args.get(1), args.get(2)) {
             (Some(OscArg::Float(x)), Some(OscArg::Float(y)), Some(OscArg::Float(z))) => {
-                // Stocker les données
                 if let Ok(mut gyro) = get_gyroscope_mut().lock() {
                     *gyro = (*x, *y, *z);
                 }
-                // Afficher uniquement XYZ
                 println!("{:.6} {:.6} {:.6}", x, y, z);
             }
             _ => {}
