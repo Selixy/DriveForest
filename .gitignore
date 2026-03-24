@@ -1,8 +1,18 @@
-# OS (Fichiers cachés de Windows/Mac)
+# --- Syncthing & SyncTrayzor ---
+**/*.syncthing.*.tmp
+**/*.sync-conflict-*
+# Dossiers de gestion Syncthing (identifiant de dossier et historique)
+.stfolder/
+.stversions/
+# Logs et base de données SyncTrayzor (si présents dans le repo)
+SyncTrayzorLog.txt
+*.syncthing.db*
+
+# --- OS (Fichiers cachés de Windows/Mac) ---
 .DS_Store
 Thumbs.db
 
-# Dossiers Unity à NE PAS versionner (ils se régénèrent tout seuls)
+# --- Unity (Dossiers générés) ---
 Unity_DriveSim/[Ll]ibrary/
 Unity_DriveSim/[Tt]emp/
 Unity_DriveSim/[Oo]bj/
@@ -12,7 +22,7 @@ Unity_DriveSim/[Ll]ogs/
 Unity_DriveSim/[Uu]serSettings/
 Unity_DriveSim/MemoryCaptures/
 
-# Fichiers de code et de projet générés par Unity/Visual Studio
+# --- IDE (Visual Studio / Unity Projects) ---
 **/*.csproj
 **/*.unityproj
 **/*.sln
@@ -28,12 +38,13 @@ Unity_DriveSim/MemoryCaptures/
 **/*.opendb
 **/*.VC.db
 
-# Assets dossier - exclure tout sauf scripts
+# --- Assets ---
+# On ignore tout sauf le dossier scripts
 Assets/
 !Assets/scripts/
 !Assets/scripts/**
 
-# Rust/Cargo
+# --- Rust / Cargo ---
 Controller/Server/target/
 Controller/Server/dist/
 Controller/Server/Cargo.lock
