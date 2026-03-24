@@ -1,5 +1,0 @@
-# This directory is a Syncthing folder marker.
-# Do not delete.
-
-folderID: c2cve-wcinl
-created: 2026-03-24T10:54:37+01:00
