@@ -43,6 +43,8 @@
             "Assets": true,
             "Controller": true,
             "Unity_DriveSim": true,
+			".cargo": true,
+			"target": true,
         },
 	},
 	"extensions": {
@@ -54,6 +56,72 @@
 			"esbenp.prettier-vscode",
 			"eamodio.gitlens",
 			"github.github-vscode-theme"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "▶ Run Server",
+				"type": "shell",
+				"command": "powershell",
+				"args": [
+					"-NoProfile",
+					"-ExecutionPolicy",
+					"Bypass",
+					"-File",
+					"${workspaceFolder}/Controller/Server/utils/run.ps1",
+					"-Build"
+				],
+				"options": {
+					"cwd": "${workspaceFolder}/Controller/Server"
+				},
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				},
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": true,
+					"panel": "shared"
+				},
+				"isBackground": false
+			},
+			{
+				"label": "🧪 Test Server",
+				"type": "shell",
+				"command": "cargo",
+				"args": [
+					"test",
+					"--manifest-path",
+					"${workspaceFolder}/Controller/Server/Cargo.toml"
+				],
+				"group": "test",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				}
+			},
+			{
+				"label": "🧹 Clean Server",
+				"type": "shell",
+				"command": "cargo",
+				"args": [
+					"clean",
+					"--manifest-path",
+					"${workspaceFolder}/Controller/Server/Cargo.toml"
+				],
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				}
+			}
 		]
 	}
 }

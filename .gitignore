@@ -32,3 +32,10 @@ Unity_DriveSim/MemoryCaptures/
 Assets/
 !Assets/scripts/
 !Assets/scripts/**
+
+# Rust/Cargo
+Controller/Server/target/
+Controller/Server/dist/
+Controller/Server/Cargo.lock
+**/*.rlib
+**/*.rmeta

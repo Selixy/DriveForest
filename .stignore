@@ -17,3 +17,10 @@ Unity_DriveSim/Builds
 *.suo
 *.user
 *.userprefs
+
+// Rust/Cargo
+Controller/Server/target
+Controller/Server/dist
+Cargo.lock
+*.rlib
+*.rmeta
