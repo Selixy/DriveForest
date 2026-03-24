@@ -1,0 +1,59 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "Root"
+		},
+		{
+			"path": "Unity_DriveSim/Assets/Scripts",
+			"name": "Unity"
+		},
+		{
+			"path": "Controller/Server",
+			"name": "Server"
+		},
+		{
+			"path": "Controller/Arduino",
+            "name": "Arduino"
+		},
+		{
+			"path": "Assets",
+			"name": "Assets"
+		},
+	],
+	"settings": {
+        "files.exclude": {
+            "**/bin": true,
+            "**/obj": true,
+            "**/Library": true,
+            "**/Temp": true,
+            "**/Logs": true,
+            "**/MemoryCaptures": true,
+            "**/*.sln": true,
+            "**/*.csproj": true,
+            "**/*.unityproj": true,
+            "**/*.pidb": true,
+            "**/*.userprefs": true,
+            "**/*.unitypackage": true,
+            "**/*.meta": true,
+            "**/*.asset": true,
+
+
+            ".stfolder": true,
+            "Assets": true,
+            "Controller": true,
+            "Unity_DriveSim": true,
+        },
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-vscode.powershell",
+			"ms-dotnettools.csharp",
+			"ms-vscode.cpptools",
+			"esbenp.prettier-vscode",
+			"eamodio.gitlens",
+			"github.github-vscode-theme"
+		]
+	}
+}
