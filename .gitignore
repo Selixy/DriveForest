@@ -1,0 +1,34 @@
+# OS (Fichiers cachés de Windows/Mac)
+.DS_Store
+Thumbs.db
+
+# Dossiers Unity à NE PAS versionner (ils se régénèrent tout seuls)
+Unity_DriveSim/[Ll]ibrary/
+Unity_DriveSim/[Tt]emp/
+Unity_DriveSim/[Oo]bj/
+Unity_DriveSim/[Bb]uild/
+Unity_DriveSim/[Bb]uilds/
+Unity_DriveSim/[Ll]ogs/
+Unity_DriveSim/[Uu]serSettings/
+Unity_DriveSim/MemoryCaptures/
+
+# Fichiers de code et de projet générés par Unity/Visual Studio
+**/*.csproj
+**/*.unityproj
+**/*.sln
+**/*.suo
+**/*.tmp
+**/*.user
+**/*.userprefs
+**/*.pidb
+**/*.booproj
+**/*.svd
+**/*.pdb
+**/*.mdb
+**/*.opendb
+**/*.VC.db
+
+# Assets dossier - exclure tout sauf scripts
+Assets/
+!Assets/scripts/
+!Assets/scripts/**
