@@ -1,7 +1,7 @@
-/// Module OSC Output - En prévision pour envoyer des données OSC
-/// À implémenter ultérieurement
+/// Module OSC Output - Réservé pour implémentation future
+/// Pour envoyer des données à l'application
 
 pub fn send() {
-    // TODO: Implémenter l'envoi OSC
-    println!("ℹ️  OSC Output - À implémenter");
+    // Placeholder
 }
+

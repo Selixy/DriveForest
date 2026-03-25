@@ -1,5 +1,3 @@
-pub mod gyroscop_osc_input;
+pub mod quaternion_osc_input;
 
-pub use gyroscop_osc_input::listen;
-pub use gyroscop_osc_input::get_gyroscope;
-
+pub use quaternion_osc_input::listen;
