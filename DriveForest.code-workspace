@@ -54,8 +54,6 @@
 			"ms-dotnettools.csharp",
 			"ms-vscode.cpptools",
 			"esbenp.prettier-vscode",
-			"eamodio.gitlens",
-			"github.github-vscode-theme"
 		]
 	},
 	"tasks": {

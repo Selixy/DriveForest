@@ -1,10 +1,18 @@
 mod network;
+mod core;
+mod ui;
 
-use network::start_input;
+use std::thread;
+use network::input::listen;
+use network::output::run_sender;
 
 fn main() {
-    println!("🚀 Démarrage du serveur DriveForest...\n");
-    
-    // Démarrer le récepteur OSC (input)
-    start_input();
+    // Thread OSC entrée : reçoit les quaternions du téléphone
+    thread::spawn(|| { listen(); });
+
+    // Thread OSC sortie : envoie le braquage vers Unity en local
+    thread::spawn(|| { run_sender(); });
+
+    // Interface graphique sur le thread principal
+    ui::run();
 }

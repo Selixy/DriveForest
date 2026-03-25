@@ -1,6 +1,9 @@
 [package]
 name = "Server"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
+nalgebra = "0.33"
+if-addrs  = "0.13"
+eframe    = "0.30"
