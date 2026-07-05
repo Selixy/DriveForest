@@ -6,7 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/OutdoorsScene.unity
+    path: Assets/Scene/Main.unity
+    guid: 993dff2178c70a849b86e159d00a2aa9
+  - enabled: 1
+    path: Assets/Scene/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scene/Eviro.unity
+    guid: 4869c103eb8349b4db91568322e9ef8f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: d86f827d59cdb2041adc2fa684509ba3, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 04a0af82b01d25846b54b5a769e1caf9, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3bcfbefff5819704299d73d184154829, type: 2}

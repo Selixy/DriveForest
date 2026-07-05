@@ -1,12 +1,12 @@
 use std::net::UdpSocket;
-use std::thread;
-use std::time::Duration;
 
-use crate::core::get_steering;
+use crate::core::{get_steering, get_accel};
 
-pub const UNITY_IP:    &str = "127.0.0.1";
-pub const UNITY_PORT:  u16  = 9000;
-pub const OSC_ADDRESS: &str = "/driveforest/steering";
+pub const UNITY_IP:       &str = "127.0.0.1";
+pub const UNITY_PORT:     u16  = 9000;
+pub const OSC_ADDRESS:    &str = "/driveforest/steering";
+pub const OSC_ACCEL:      &str = "/driveforest/accel";
+pub const OSC_HONK:       &str = "/driveforest/honk";
 
 /// Encode un message OSC minimal : une adresse + un float.
 ///
@@ -31,19 +31,14 @@ fn encode_float(address: &str, value: f32) -> Vec<u8> {
     buf
 }
 
-/// Boucle d'envoi : lit le braquage calculé et l'envoie en OSC UDP ~60 fps.
-pub fn run_sender() {
-    let socket = UdpSocket::bind("0.0.0.0:0")
-        .expect("OSC output: impossible de créer le socket");
+/// Envoie braquage + accélération vers Unity.
+pub fn send_steering_now(socket: &UdpSocket, target: &str) {
+    socket.send_to(&encode_float(OSC_ADDRESS, get_steering()), target).ok();
+    socket.send_to(&encode_float(OSC_ACCEL,   get_accel()),    target).ok();
+}
 
-    let target = format!("{}:{}", UNITY_IP, UNITY_PORT);
-
-    println!("OSC output -> udp://{}  addr: {}", target, OSC_ADDRESS);
-
-    loop {
-        let steering = get_steering();
-        let packet   = encode_float(OSC_ADDRESS, steering);
-        socket.send_to(&packet, &target).ok();
-        thread::sleep(Duration::from_millis(16)); // ~60 fps
-    }
+/// Envoie un trigger de klaxon vers Unity.
+pub fn send_honk(socket: &UdpSocket, target: &str) {
+    let packet = encode_float(OSC_HONK, 1.0);
+    socket.send_to(&packet, target).ok();
 }
