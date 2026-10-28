@@ -38,11 +38,10 @@ Unity_DriveSim/MemoryCaptures/
 **/*.opendb
 **/*.VC.db
 
-# --- Assets ---
-# On ignore tout sauf le dossier scripts
-Assets/
-!Assets/scripts/
-!Assets/scripts/**
+# --- Assets Unity ---
+# On ignore tout sauf les scripts
+Unity_DriveSim/Assets/*
+!Unity_DriveSim/Assets/Scripts/
 
 # --- Rust / Cargo ---
 Controller/Server/target/

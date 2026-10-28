@@ -1,0 +1,8 @@
+{
+    "rigged":  true,
+    "lods":  [
+                 "Lod0"
+             ],
+    "version":  "V00",
+    "is_static":  false
+}
