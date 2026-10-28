@@ -12,7 +12,7 @@ Des scripts PowerShell pour ranger les assets du jeu et créer leurs fichiers de
 
 ## Les addons
 
-Les deux addons (`scripts/addons/`) sont une base : un panneau « DriveForest » dans la barre latérale de Blender (touche N) avec un bouton d'essai, et l'équivalent pour Substance Painter. Je voulais y brancher la création et le versionnage des assets pour qu'on n'ouvre plus de console, mais je me suis arrêtée avant.
+Les deux addons (`scripts/addons/`) sont une base : un panneau « DriveForest » dans la barre latérale de Blender (touche N) avec un bouton d'essai, et l'équivalent pour Substance Painter. Je voulais y brancher la création et le versionnage des assets pour qu'on n'ouvre plus de console, mais je n'ai pas été plus loin.
 
 Dans Blender, l'addon peut vivre dans le fichier `.blend`, donc il suit l'asset. Substance Painter ne permet pas de glisser l'addon dans le fichier de projet : il faut passer par le dossier de plugins du logiciel, d'où les scripts d'installation et de mise à jour. C'est la raison pour laquelle l'intégration s'est arrêtée à la création du fichier et du dossier.
 
