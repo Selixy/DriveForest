@@ -50,3 +50,7 @@ Controller/Server/dist/
 Controller/Server/Cargo.lock
 **/*.rlib
 **/*.rmeta
+# Build Unity, dossiers locaux
+Build_Unity/
+.claude/
+UserSettings/
